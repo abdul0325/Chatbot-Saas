@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="absolute top-0 left-0 w-full h-full bg-cover bg-center flex justify-center items-center"
+     style="background-image: url('https://res.cloudinary.com/dkt1t22qc/image/upload/v1742348950/Prestataires_Documents/fopt5esl9cgvlcawz1z4.jpg');">
+
+  <div class="bg-[#310D84]/90 p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h2 class="text-3xl font-bold mb-6 text-center text-yellow-300 drop-shadow-lg ">📧 Registered Emails</h2>
+
+
+
+    <ul class="list-disc list-inside space-y-2 text-sm text-gray-200">
+      {% for user in users %}
+        <li>{{ user.email }}</li>
+      {% empty %}
+        <li>No users registered yet.</li>
+      {% endfor %}
+    </ul>
+
+    <div class="mt-6 text-center">
+      <a href="{% url 'register' %}"
+         class="inline-block bg-gradient-to-br from-blue-900 to-blue-850  text-white px-4 py-2 rounded-md shadow-md hover:opacity-90 transition">
+        Register Here
+      </a>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="absolute top-0 left-0 w-full h-full bg-cover bg-center flex flex-col justify-center items-center text-white"
+     style="background-image: url('https://res.cloudinary.com/dkt1t22qc/image/upload/v1742348950/Prestataires_Documents/fopt5esl9cgvlcawz1z4.jpg');">
+
+  <h1 class="text-3xl font-bold mb-6 bg-black bg-opacity-50 px-6 py-3 rounded-lg shadow-lg">
+    ✅ You are logged in successfully
+  </h1>
+
+  <a href="{% url 'logout' %}"
+     class="mt-4 inline-block bg-gradient-to-br from-blue-600 to-blue-800 text-white px-6 py-2 rounded-md shadow-md hover:opacity-90 transition">
+    Logout
+  </a>
+
+</div>
+
+{% endblock %}

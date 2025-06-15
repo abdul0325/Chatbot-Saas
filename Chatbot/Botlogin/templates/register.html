@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="absolute top-0 left-0 w-full h-full bg-cover bg-center flex justify-center items-center"
+     style="background-image: url('https://res.cloudinary.com/dkt1t22qc/image/upload/v1742348950/Prestataires_Documents/fopt5esl9cgvlcawz1z4.jpg');">
+
+  <div class="flex flex-col items-center space-y-8">
+    
+    <!-- Logo -->
+    <div>
+      <img
+        src="https://res.cloudinary.com/dkt1t22qc/image/upload/v1742348949/Prestataires_Documents/smj7n1bdlpjsfsotwpco.png"
+        alt="Chat Bot"
+        class="cursor-pointer" />
+    </div>
+
+    <!-- Login Card -->
+    <div class="rounded-[20px] w-80 p-8 bg-[#310D84]" style="box-shadow:-6px 3px 20px 4px #0000007d">
+      <h1 class="text-white text-3xl font-bold mb-4">Register</h1>
+
+      <!-- Error Message -->
+      {% if form.non_field_errors %}
+  <div class="bg-red-500 text-white text-sm rounded p-2 mb-4 text-center">
+    {{ form.non_field_errors }}
+  </div>
+{% endif %}
+{% for field in form %}
+  {% for error in field.errors %}
+    <div class="bg-red-500 text-white text-sm rounded p-2 mb-4 text-center">
+      {{ error }}
+    </div>
+  {% endfor %}
+{% endfor %}
+
+
+      <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        <!-- Email Field -->
+        <div class="space-y-4 text-black">
+          {{ form.email }}
+        </div>
+
+        <!-- Password Field -->
+        <div class="py-3">
+          {{ form.password }}
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center mb-4">
+          <button type="submit"
+                  class="h-10 w-50 rounded cursor-pointer text-white rounded-md bg-gradient-to-br from-blue-900 to-blue-850 shadow-md shadow-blue-950">
+            Register
+          </button>
+        </div>
+
+        <!-- Register Link -->
+        <div class="text-gray-300 text-center">
+          Already have an account?
+          <a href="{% url 'login' %}" class="text-[#228CE0] underline hover:text-blue-400">
+            Sign In
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
